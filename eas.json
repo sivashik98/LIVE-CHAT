@@ -4,14 +4,23 @@
       "developmentClient": true,
       "distribution": "internal",
       "ios": {
+        "resourceClass": "medium",
         "simulator": true
+      },
+      "android": {
+        "resourceClass": "medium",
+        "image": "ubuntu-18.04-jdk-11-ndk-r19c"
       }
     },
-    "production": {
+    "preview": {
+      "withoutCredentials": true,
       "distribution": "internal",
       "android": {
-        "developmentClient": true,
+        "resourceClass": "medium",
         "gradleCommand": ":app:assembleRelease"
+      },
+      "ios": {
+        "resourceClass": "medium"
       }
     }
   }

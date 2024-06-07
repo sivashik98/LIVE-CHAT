@@ -1,1 +1,1 @@
-export * from "./PressToDownscale";
+export * from './PressToDownscale';

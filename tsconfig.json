@@ -1,6 +1,24 @@
 {
+  "extends": "expo/tsconfig.base",
   "compilerOptions": {
-    "jsx": "react"
-  },
-  "extends": "expo/tsconfig.base"
+    "jsx": "react",
+    "strict": true,
+    "baseUrl": "./",
+    "esModuleInterop": true,
+    "paths": {
+      "assets/*": ["assets/*"],
+      "svg/*": ["assets/svg/*"],
+      "lottie/*": ["assets/lottie/*"],
+      "png/*": ["assets/png/*"],
+      "src/*": ["src/*"],
+      "api/*": ["src/api/*"],
+      "components/*": ["src/components/*"],
+      "hooks/*": ["src/hooks/*"],
+      "lib/*": ["src/lib/*"],
+      "modules/*": ["src/modules/*"],
+      "navigation/*": ["src/navigation/*"],
+      "providers/*": ["src/providers/*"],
+      "store/*": ["src/store/*"],
+    }
+  }
 }
