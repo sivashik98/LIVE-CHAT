@@ -30,22 +30,6 @@ const InnerApp = () => {
   const [isReady, setIsReady] = useState(false);
   const [session, setSession] = useState<Session | null>(null);
 
-  // useEffect(() => {
-  //   supabase.auth.getUser().then(({ data: { user } } ) => console.log('user', user))
-  //   // supabase.auth.getSession().then(({ data: { session } }) => {
-  //   //   console.log('session', session)
-  //   //   setSession(session)
-  //   // })
-  //   //
-  //   //
-  //   // supabase.auth.onAuthStateChange((_event, session) => {
-  //   //   console.log('onAuthStateChange', session)
-  //   //   setSession(session)
-  //   // })
-  // }, [])
-
-  // console.log(session)
-
   const connectUser = async () => {
     // await client.connectUser(
     //   {
@@ -65,36 +49,6 @@ const InnerApp = () => {
     // await client.disconnectUser();
   };
 
-  // const getProfile = async () => {
-  //   try {
-  //     setLoading(true);
-  //     if (!session?.user) throw new Error('No user on the session!');
-  //     const { data, error, status } = await supabase
-  //       .from('profiles')
-  //       .select(`username, website, avatar_url, full_name`)
-  //       .eq('id', session?.user.id)
-  //       .single();
-  //     if (error && status !== 406) throw error;
-  //     if (data) {
-  //       setUsername(data.username);
-  //       setWebsite(data.website);
-  //       setAvatarUrl(data.avatar_url);
-  //       setFullName(data.full_name);
-  //     }
-  //   } catch (error) {
-  //     if (error instanceof Error) {
-  //       Alert.alert(error.message);
-  //     }
-  //   } finally {
-  //     setLoading(false);
-  //   }
-  // };
-  //
-  // useEffect(() => {
-  //   if (session) getProfile();
-  // }, [session]);
-  //
-
   useEffect(() => {
     const run = async () => {
       if (isAndroid) {
@@ -109,11 +63,6 @@ const InnerApp = () => {
     // `onAuthStateChange` events with the `TOKEN_REFRESHED` or `SIGNED_OUT` event
     // if the user's session is terminated. This should only be registered once.
     const listener = AppState.addEventListener('change', supabaseHandler);
-
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      console.log('session', session);
-      setSession(session);
-    });
 
     setIsReady(true);
     return () => {
